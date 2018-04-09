@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/cplv_text_bookedSeats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booked Seats"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/cplv_bookedSeats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="5dp"
+                android:text="2"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/cplv_text_Fair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cplv_bookedSeats"
+                android:text="Fair"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/cplv_Fair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/cplv_bookedSeats"
+                android:layout_marginRight="5dp"
+                android:text="200"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/cplv_line1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/cplv_Fair"
+                android:background="#c0c0c0"
+                android:visibility="gone" />
+
+
+
+            <TextView
+                android:id="@+id/cplv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="February 12"
+                android:paddingLeft="10dp"
+                android:layout_below="@+id/cplv_line1"/>
+
+            <TextView
+                android:id="@+id/cplv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cplv_date"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:text="10:40 PM"
+                android:paddingLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/cplv_est_arrival_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cplv_time"
+                android:layout_alignBottom="@+id/cplv_time"
+                android:layout_toEndOf="@+id/cplv_time"
+                android:text="- 7:00 AM (Feb 13)"
+                android:paddingLeft="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cplv_seats"
+                android:text="Available seats: 3 of 3"
+                android:layout_below="@+id/cplv_est_arrival_time"
+                android:paddingLeft="5dp"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/cplv_text_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cplv_seats"
+                android:textSize="15sp"
+                android:text="SOURCE:"
+                android:paddingLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/cplv_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cplv_text_source"
+                android:layout_alignBottom="@+id/cplv_text_source"
+                android:layout_toEndOf="@+id/cplv_text_source"
+                android:text="Islamabad"
+                android:paddingLeft="5dp"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/cplv_text_destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cplv_source"
+                android:textSize="15sp"
+                android:text="DESTINATION:"
+                android:paddingLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/cplv_destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cplv_text_destination"
+                android:layout_alignBottom="@+id/cplv_text_destination"
+                android:layout_toEndOf="@+id/cplv_text_destination"
+                android:text="Lahore"
+                android:paddingLeft="5dp"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

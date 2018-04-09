@@ -1,0 +1,250 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.rideshareplanner.ProfileFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imagelayout">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/image"
+            android:scaleType="fitXY"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/profile_image"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ehtisham"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:textColor="#ffffff" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="online"
+                android:paddingLeft="10dp"
+                android:textColor="#ffffff"
+                android:textSize="15dp"/>
+         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile was created on this date"
+            android:layout_below="@id/profile_image"
+            android:padding="8dp"
+            android:id="@+id/created_date"/>
+
+        <TextView
+            android:id="@+id/user_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/created_date"
+            android:padding="8dp"
+            android:text="You haven't added any details yet." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_details"
+            android:padding="8dp"
+            android:text="ADD DETAILS"
+            android:textStyle="bold"
+            android:textColor="@color/bgBottomNavigation"
+            android:textSize="15dp"
+            android:id="@+id/add_details"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0"
+            android:layout_below="@+id/add_details"
+            android:id="@+id/line1"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line1"
+            android:id="@+id/ratings_reviews_trips"
+            android:paddingBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textStyle="bold"
+                android:id="@+id/get_ratings"
+                android:textSize="25dp"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:paddingLeft="80dp"
+                android:paddingRight="40dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ratings"
+                android:layout_below="@+id/get_ratings"
+                android:paddingLeft="64dp"/>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textStyle="bold"
+                android:id="@+id/get_trips"
+                android:textSize="25dp"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:paddingLeft="50dp"
+                android:layout_toRightOf="@+id/get_ratings"
+                android:paddingRight="40dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="trips"
+                android:layout_below="@+id/get_trips"
+                android:paddingLeft="40dp"
+                android:layout_toRightOf="@+id/get_ratings"/>
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textStyle="bold"
+                android:id="@+id/get_reviews"
+                android:textSize="25dp"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:paddingLeft="50dp"
+                android:layout_toRightOf="@+id/get_trips"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ratings"
+                android:layout_below="@+id/get_reviews"
+                android:paddingLeft="35dp"
+                android:layout_toRightOf="@+id/get_trips"/>
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0"
+            android:layout_below="@+id/ratings_reviews_trips"
+            android:id="@+id/line2" />
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_lv"
+            android:layout_below="@+id/line2"
+            android:layout_marginBottom="10dp">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0"
+            android:layout_below="@+id/profile_lv"
+            android:id="@+id/line3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line3"
+            android:padding="10dp"
+            android:text="Cars"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:id="@+id/car_text"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:padding="15dp"
+            android:src="@drawable/image"
+            android:layout_below="@id/car_text"
+            android:scaleType="fitXY"
+            android:id="@+id/car_image"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/car_image"
+            android:orientation="horizontal"
+            android:background="@color/com_facebook_blue"
+            android:id="@+id/car_details_layout"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/car_name_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hyundai, 2008"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:textColor="#ffffff"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginLeft="80dp"
+                android:layout_weight="1"
+                android:text="color"
+                android:textColor="#ffffff"
+                android:textSize="15dp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                app:civ_circle_background_color="@color/common_google_signin_btn_text_light_pressed"
+                android:layout_weight="1"
+                android:src="@color/common_google_signin_btn_text_light_pressed"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0"
+            android:layout_below="@+id/car_details_layout"
+            android:id="@+id/line4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line4"
+            android:padding="10dp"
+            android:text="Reviews"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:id="@+id/reviews_text"
+            android:layout_marginBottom="50dp"/>
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+</ScrollView>

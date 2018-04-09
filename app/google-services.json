@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "718645759690",
+    "firebase_url": "https://rideshareplanner.firebaseio.com",
+    "project_id": "rideshareplanner",
+    "storage_bucket": "rideshareplanner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718645759690:android:1a77ca4d98f6094d",
+        "android_client_info": {
+          "package_name": "com.example.android.rideshareplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718645759690-hd14fhjdhuq54ojcjetg851rva87omc8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.rideshareplanner",
+            "certificate_hash": "e95c127a65a404e4901f795c57b8f61f21349444"
+          }
+        },
+        {
+          "client_id": "718645759690-jgfk3gnvnhrrapmbnmkhi5galsoffbfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf3Y0NUuCkElxWndV82lnvimy9_oz6iro"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718645759690-jgfk3gnvnhrrapmbnmkhi5galsoffbfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
