@@ -3,9 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="ncolorPrimary">#7b4bff</color>
+    <color name="ncolorPrimary">#f6c2c5</color>
     <color name="ncolorPrimaryDark">#6539ba</color>
-    <color name="ncolorAccent">#FF4081</color>
-    <color name="bgBottomNavigation">#fe4863</color>
+    <color name="ncolorAccent">#c20c31</color>
+    <color name="bgBottomNavigation">#fe4857</color>
     <color name="black">#000000</color>
 </resources>

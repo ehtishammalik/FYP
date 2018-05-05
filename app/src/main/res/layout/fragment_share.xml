@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/create_from"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="88dp"
@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/create_to"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/create_line1"
@@ -49,7 +49,7 @@
 
     <TextView
         android:id="@+id/create_when"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/create_line2"
         android:layout_marginTop="11dp"
@@ -64,34 +64,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/create_when"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="11dp"
+        android:paddingLeft="100dp"
         android:text="Select Time"
         android:textSize="20sp"
-        tools:text="Select Time"
-        android:layout_marginStart="12dp"
-        android:paddingLeft="100dp"/>
-    <Button
-        android:id="@+id/btn_Seats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/create_return_time"
-        android:layout_marginBottom="32dp"
-        android:background="@color/com_facebook_button_background_color_pressed"
-        android:shadowColor="@color/bgBottomNavigation"
-        android:text="Select No of Seats"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginLeft="100dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:textColor="@color/cardview_light_background" />
+        android:visibility="gone"
+        tools:text="Select Time" />
 
 
     <Button
         android:id="@+id/btn_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_Seats"
+        android:layout_below="@+id/create_return_time"
         android:layout_marginBottom="32dp"
         android:background="@color/bgBottomNavigation"
         android:shadowColor="@color/bgBottomNavigation"

@@ -24,12 +24,11 @@ import java.util.List;
 public class IProvidedAdapter extends RecyclerView.Adapter <IProvidedAdapter.myViewHolder> {
     public LayoutInflater inflater;
     Context context;
-    private static FirebaseDatabase database;
-    private static DatabaseReference myRef;
-    public static List<carpoolItems> data = new ArrayList<>();
+    static MyRidesDataModel selectedItem;
+    public static List<MyRidesDataModel> data = new ArrayList<>();
 
 
-    public IProvidedAdapter (Context context, List<carpoolItems> data){
+    public IProvidedAdapter (Context context, List<MyRidesDataModel> data){
         inflater=LayoutInflater.from(context);
         this.data = data;
         this.context = context;
@@ -43,19 +42,24 @@ public class IProvidedAdapter extends RecyclerView.Adapter <IProvidedAdapter.myV
 
     @Override
     public void onBindViewHolder(final myViewHolder holder, final int position) {
-        carpoolItems items = new carpoolItems();
-        items = data.get(position);
+        MyRidesDataModel rides = data.get(position);
         holder.bookedSeatstext.setVisibility(View.VISIBLE);
         holder.bookedSeats.setVisibility(View.VISIBLE);
+        holder.bookedSeats.setText(rides.getSeatsBooked());
         holder.Fairtext.setVisibility(View.VISIBLE);
         holder.Fair.setVisibility(View.VISIBLE);
+        holder.Fair.setText(rides.getFairPerKm());
         holder.view.setVisibility(View.VISIBLE);
-        holder.text1.setText(items.getDateAndDay());
-        holder.text2.setText(items.getDepartureTime());
-        holder.text3.setText(items.getEstArrivalTime());
+        holder.startingDate.setText(rides.getStartingDate());
+        holder.startingTime.setText(rides.getStartingTime());
+        holder.arrivalTime.setText("- " +rides.getArrivalTime().toString());
+        holder.startingLocation.setText(rides.getStartingAddress());
+        holder.destinationLocation.setText(rides.getDestinationAddress());
+        holder.availableSeats.setText("Available Seats: "+rides.getSeatsAvailable());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                selectedItem = data.get(position);
                 Intent intent = new Intent(context,RideDetails.class);
                 context.startActivity(intent);
 
@@ -71,9 +75,12 @@ public class IProvidedAdapter extends RecyclerView.Adapter <IProvidedAdapter.myV
     }
     class myViewHolder extends RecyclerView.ViewHolder{
         TextView bookedSeatstext,bookedSeats,Fairtext,Fair;
-        TextView text1;
-        TextView text2;
-        TextView text3;
+        TextView startingDate;
+        TextView startingTime;
+        TextView arrivalTime;
+        TextView availableSeats;
+        TextView startingLocation;
+        TextView destinationLocation;
         View view;
 
         public myViewHolder(View itemView) {
@@ -83,9 +90,13 @@ public class IProvidedAdapter extends RecyclerView.Adapter <IProvidedAdapter.myV
             bookedSeats = itemView.findViewById(R.id.cplv_bookedSeats);
             Fairtext = itemView.findViewById(R.id.cplv_text_Fair);
             Fair = itemView.findViewById(R.id.cplv_Fair);
-            text1 = itemView.findViewById(R.id.cplv_date);
-            text2 = itemView.findViewById(R.id.cplv_time);
-            text3 = itemView.findViewById(R.id.cplv_est_arrival_time);
+            startingDate = itemView.findViewById(R.id.cplv_date);
+            startingTime = itemView.findViewById(R.id.cplv_time);
+            arrivalTime = itemView.findViewById(R.id.cplv_est_arrival_time);
+            availableSeats = itemView.findViewById(R.id.cplv_seats);
+            startingLocation = itemView.findViewById(R.id.cplv_source);
+            destinationLocation = itemView.findViewById(R.id.cplv_destination);
+
         }
     }
 

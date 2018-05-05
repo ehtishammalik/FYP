@@ -1,5 +1,6 @@
 package com.example.android.rideshareplanner;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -18,6 +19,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.maps.android.PolyUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.nio.DoubleBuffer;
 import java.util.ArrayList;
@@ -33,15 +38,20 @@ public class GetDirectionsData extends AsyncTask<Object,String,String> {
     GoogleMap mMap;
     String url;
     String googleDirectionsData;
-    String duration, distance;
+    static String duration, distance;
     LatLng latLng;
     DatabaseReference databaseReference;
-    static String polyline2;
+    static String polyline;
+    Context context;
+    static ArrayList<String> allcities;
+
+
     @Override
     protected String doInBackground(Object... objects) {
         mMap = (GoogleMap)objects[0];
         url = (String)objects[1];
-        getPolyline();
+        context = (Context) objects[2];
+        //getPolyline();
 
 
 
@@ -59,43 +69,46 @@ public class GetDirectionsData extends AsyncTask<Object,String,String> {
     protected void onPostExecute(String s) {
 
         String[] directionsList;
-        DataParser parser = new DataParser();
+        DataParser parser = new DataParser(context);
+
+        HashMap<String,String> distanceAndDuration = parser.getDuration(getJsonArray(s));
+        distance = distanceAndDuration.get("distance");
+        duration = distanceAndDuration.get("duration");
+
         directionsList = parser.parseDirections(s);
-        parser.getPolylineArray(s);
+        allcities = parser.getAllCities(s);
 
-        for (int i=0;i<directionsList.length;i++){
-            Log.e("GetDirections", "directionsList:- "+ directionsList[i]);
+//        for (int i=0;i<directionsList.length;i++){
+//            Log.e("GetDirections", "directionsList:- "+ directionsList[i]);
+//        }
+
+
+
+
+        polyline = parser.getPolyline(s);
+
+
+
+//        displayDirection(directionsList);
+
+
+    }
+
+    public JSONArray getJsonArray(String s){
+        JSONArray jsonArray = null;
+        JSONArray jsonArray1 = null;
+        JSONObject jsonObject;
+
+        try {
+            jsonObject = new JSONObject(s);
+            jsonArray = jsonObject.getJSONArray("routes").getJSONObject(0).getJSONArray("legs");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
-
-
-        displayDirection(directionsList);
-
-
+        return jsonArray;
     }
 
-    public void getPolyline(){
-        databaseReference = FirebaseDatabase.getInstance().getReference("My Rides").child("Path");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot i : dataSnapshot.getChildren()) {
-
-                    String string = new String();
-
-                    string = i.getValue(String.class);
-                    polyline2 = string.toString();
-
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-            }
-        });
-    }
 
     public void displayDirection(String[] directionsList)
     {
@@ -112,11 +125,11 @@ public class GetDirectionsData extends AsyncTask<Object,String,String> {
             mMap.addPolyline(options);
         }
 
-        PolylineOptions options2 = new PolylineOptions();
-        options2.addAll(PolyUtil.decode(polyline2));
-        options2.color(Color.BLUE);
-        options2.width(8);
-        mMap.addPolyline(options2);
+//        PolylineOptions options2 = new PolylineOptions();
+//        options2.addAll(PolyUtil.decode(polyline2));
+//        options2.color(Color.BLUE);
+//        options2.width(8);
+//        mMap.addPolyline(options2);
 
         MarkerOptions startmarker = new MarkerOptions();
         startmarker.title("Starting Postion");

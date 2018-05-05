@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/search_from"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="88dp"
@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/search_to"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/search_line1"
@@ -49,26 +49,26 @@
 
     <TextView
         android:id="@+id/search_when"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_line2"
         android:layout_marginTop="11dp"
         android:text="Select Date"
         android:textSize="20sp"
         tools:text="Select Date"
-        android:layout_marginStart="12dp"
+        android:layout_margin="12dp"
         android:paddingLeft="50dp"/>
 
     <TextView
         android:id="@+id/search_return_time"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_when"
         android:layout_marginTop="11dp"
         android:text="Select Time"
         android:textSize="20sp"
         tools:text="Select Time"
-        android:layout_marginStart="12dp"
+        android:layout_margin="12dp"
         android:paddingLeft="50dp"/>
 
     <Button

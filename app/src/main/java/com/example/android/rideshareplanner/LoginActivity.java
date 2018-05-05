@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
+    static String userId;
 
 
 
@@ -41,7 +42,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
                 if (user!=null){
+                    userId = user.getUid();
                     Intent intent = new Intent(LoginActivity.this, Main2Activity.class);
                     startActivity(intent);
                     finish();
@@ -84,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void btnSignup_Click(View v){
 
-        Intent i = new Intent(LoginActivity.this,SignUp.class);
+        Intent i = new Intent(LoginActivity.this,SignUpOptions.class);
         startActivity(i);
     }
 

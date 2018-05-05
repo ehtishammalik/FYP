@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ncolorPrimary"
+    android:orientation="vertical"
+    tools:context="com.example.android.rideshareplanner.SignUpOptions"
+    android:id="@+id/signUp_Options">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/googleSignUpBtn"
+        android:layout_marginTop="14dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_carpool_icon" />
+
+    <Button
+        android:id="@+id/google_Sign_up_Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:background="@color/ncolorAccent"
+        android:text="@string/common_signin_button_text_long" />
+
+    <Button
+        android:id="@+id/email_sign_up_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/google_Sign_up_Btn"
+        android:layout_margin="10dp"
+        android:background="@color/ncolorAccent"
+        android:text="SignIn with Email" />
+
+</RelativeLayout>

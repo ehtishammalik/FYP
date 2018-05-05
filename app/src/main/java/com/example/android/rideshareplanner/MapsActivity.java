@@ -85,6 +85,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         GetDirectionsData getDirectionsData = new GetDirectionsData();
         dataTransfer[0] = mMap;
         dataTransfer[1] = url;
+        dataTransfer[2] = getApplicationContext();
         getDirectionsData.execute(dataTransfer);
 
 

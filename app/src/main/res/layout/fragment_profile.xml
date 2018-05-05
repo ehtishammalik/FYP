@@ -177,7 +177,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:padding="15dp"
-            android:src="@drawable/image"
+            android:src="@drawable/car_image"
             android:layout_below="@id/car_text"
             android:scaleType="fitXY"
             android:id="@+id/car_image"/>

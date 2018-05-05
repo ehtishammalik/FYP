@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.rideshareplanner.CreateRideDetails"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.NoStatusBarWithActionBar"
+        android:id="@+id/cr_toolbar"
+        app:navigationIcon="@drawable/ic_close_black_24dp"
+        android:background="@color/bgBottomNavigation">
+
+    </android.support.v7.widget.Toolbar>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cr_map_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:elevation="3dp"
+            app:cardCornerRadius="5dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Click to see Map"
+                    android:layout_margin="10dp"
+                    android:id="@+id/cr_map_text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cr_seats_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:elevation="3dp"
+            app:cardCornerRadius="5dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seats Available"
+                android:layout_margin="10dp"
+                android:id="@+id/cr_seats_text"/>
+            <com.andanhm.quantitypicker.QuantityPicker
+                android:layout_alignParentEnd="true"
+                xmlns:app="http://schemas.android.com/apk/res-auto/"
+                android:id="@+id/cr_seats_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:minQuantity="1"
+                app:maxQuantity="5"
+                app:textStyle="bold"
+                app:quantityColor="@color/colorPrimary"
+                app:buttonColor="@color/colorAccent"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"/>
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cr_fair_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="5dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fair (Per km)"
+                android:layout_margin="10dp"
+                android:id="@+id/cr_fair_text"/>
+            <com.andanhm.quantitypicker.QuantityPicker
+                android:layout_alignParentEnd="true"
+                xmlns:app="http://schemas.android.com/apk/res-auto/"
+                android:id="@+id/cr_fair_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:minQuantity="1"
+                app:maxQuantity="5"
+                app:textStyle="bold"
+                app:quantityColor="@color/colorPrimary"
+                app:buttonColor="@color/colorAccent"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cr_booking_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Allow Passengers To book Instantly?"
+            android:layout_margin="10dp"
+            android:id="@+id/cr_is_booking_allowed_text"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cr_is_booking_allowed_text"
+                android:id="@+id/cr_booking_radio_btn_group">
+                <RadioButton
+                    android:id="@+id/cr_booking_allowed_radio_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="YES"/>
+                <RadioButton
+                    android:id="@+id/cr_booking_not_allowed_radio_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="NO"/>
+            </RadioGroup>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cr_booking_allowed_img"
+                app:srcCompat="@drawable/ic_thumb_up_black_24dp"
+                android:layout_margin="10dp"
+                android:layout_toEndOf="@+id/cr_booking_radio_btn_group"
+                android:layout_below="@+id/cr_is_booking_allowed_text"
+                android:layout_alignParentEnd="true"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cr_booking_not_allowed_img"
+                app:srcCompat="@drawable/ic_thumb_down_black_24dp"
+                android:layout_margin="10dp"
+                android:layout_below="@id/cr_booking_allowed_img"
+                android:layout_toEndOf="@+id/cr_booking_radio_btn_group"
+                android:layout_alignParentEnd="true"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0"
+            android:layout_below="@+id/car_details_layout"
+            android:id="@+id/rd_line1"
+            android:layout_margin="5dp"/>
+
+        <Spinner
+            android:id="@+id/cr_drop_down_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/baggage_type"
+            android:prompt="@string/select_baggage_type" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0"
+            android:layout_below="@+id/car_details_layout"
+            android:id="@+id/rd_line2"
+            android:layout_margin="5dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_smoking_rooms_black_24dp"
+                android:layout_margin="10dp"
+                android:id="@+id/cr_smoking_img"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/cr_smoking_img"
+                android:layout_toEndOf="@+id/cr_smoking_img"
+                android:text="Allow Smoking" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cr_smoking_checkbox"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icons_dog_24"
+                android:layout_margin="10dp"
+                android:id="@+id/cr_animal_img"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/cr_animal_img"
+                android:layout_toEndOf="@+id/cr_animal_img"
+                android:text="Allow Animals" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cr_animals_checkbox"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"/>
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/bgBottomNavigation"
+            android:text="Create Ride"
+            android:id="@+id/cr_create_ride"/>
+
+
+
+    </LinearLayout>
+</ScrollView>

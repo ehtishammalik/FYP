@@ -23,18 +23,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:text="Mar 31,12:00 PM"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/rd_date_time"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="seats available" />
+                android:text="seats available"
+                android:id="@+id/rd_seats_available"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/rd_views_test"
@@ -80,7 +83,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginEnd="16dp"
                     android:text="Time"
-                    android:textSize="20sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -91,7 +94,7 @@
                     android:layout_below="@+id/rd_time_to"
                     android:layout_marginEnd="16dp"
                     android:text="To"
-                    android:textSize="20sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"/>
 
                 <ImageView
@@ -111,7 +114,7 @@
                     android:layout_below="@+id/rd_direction_img"
                     android:text="Time"
                     android:layout_marginStart="16dp"
-                    android:textSize="20sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -121,7 +124,7 @@
                     android:layout_below="@+id/rd_time_from"
                     android:layout_marginStart="16dp"
                     android:text="From"
-                    android:textSize="20sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"/>
             </RelativeLayout>
 
@@ -257,7 +260,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:padding="15dp"
-                android:src="@drawable/image"
+                android:src="@drawable/car_image"
                 android:layout_below="@id/rd_car_text"
                 android:scaleType="fitXY"
                 android:id="@+id/rd_car_image"/>
@@ -347,7 +350,8 @@
                     android:layout_height="wrap_content"
                     android:text="Allow Smoking"
                     android:layout_toRightOf="@id/rd_smoking_img"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:id="@+id/rd_smoking_text"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -365,7 +369,8 @@
                     android:layout_height="wrap_content"
                     android:text="Allow Smoking"
                     android:layout_toRightOf="@id/rd_animal_img"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:id="@+id/rd_animal_text"/>
             </RelativeLayout>
 
 
@@ -403,7 +408,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/seats"
+        android:text="1"
         android:textSize="20dp"
         android:id="@+id/rd_seats_toReserve"/>
 

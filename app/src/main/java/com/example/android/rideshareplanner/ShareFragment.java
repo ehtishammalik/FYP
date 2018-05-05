@@ -20,6 +20,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -47,6 +48,8 @@ public class ShareFragment extends android.support.v4.app.Fragment {
     int PLACE_PICKER_REQUEST_FROM = 1;
     int PLACE_PICKER_REQUEST_TO = 2;
     public Place place;
+    static int hour, min;
+    static String startingAddress, destinationAddress;
 
     DatabaseReference databaseReference;
 
@@ -103,25 +106,41 @@ public class ShareFragment extends android.support.v4.app.Fragment {
         });
         Return = (TextView) view.findViewById(R.id.create_return_time);
 
-        seats = (Button) view.findViewById(R.id.btn_Seats);
-        seats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialoge();
-            }
-        });
+//        seats = (Button) view.findViewById(R.id.btn_Seats);
+//        seats.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showDialoge();
+//            }
+//        });
 
         create = (Button) view.findViewById(R.id.btn_create);
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!to.getText().toString().equals("To")  && !from.getText().toString().equals("From") && !when.getText().toString().equals("Select Date")){
+                    Intent intent = new Intent(getContext(),CreateRideDetails.class);
+                    startActivity(intent);
+                }
+                else if (to.getText().toString().equals("To")){
+                    Toast.makeText(getContext(), "Please Select Where You are going to", Toast.LENGTH_SHORT).show();
+                }else if (from.getText().toString().equals("From")){
+                    Toast.makeText(getContext(), "Please Select Where You are going from", Toast.LENGTH_SHORT).show();
+                }else if (when.getText().toString().equals("Select Date")){
+                    Toast.makeText(getContext(), "Please Select the Date and Time", Toast.LENGTH_SHORT).show();
+                }
 
-                Intent intent = new Intent(getContext(),MapsActivity.class);
-                startActivity(intent);
+
             }
         });
 
         return view;
+    }
+    public boolean checkConditions(){
+        if (to.getText()!=null && from.getText()!=null && when.getText()!=null){
+            return true;
+        }
+        return false;
     }
 
 
@@ -129,7 +148,7 @@ public class ShareFragment extends android.support.v4.app.Fragment {
         if (requestCode == PLACE_PICKER_REQUEST_FROM){
             if (resultCode == getActivity().RESULT_OK){
                 place = PlacePicker.getPlace(data,getContext());
-                String address = place.getAddress().toString();
+                startingAddress = place.getAddress().toString();
                 LatLng location = place.getLatLng();
 
                 start_longitude = location.longitude;
@@ -141,11 +160,11 @@ public class ShareFragment extends android.support.v4.app.Fragment {
 
                 from.setTextSize(10);
 
-                from.setText(address);
+                from.setText(startingAddress);
 
-                databaseReference = FirebaseDatabase.getInstance().getReference("My Rides");
-                databaseReference.child("Source").child("Latitude").setValue(start_latitude);
-                databaseReference.child("Source").child("Longitude").setValue(start_longitude);
+//                databaseReference = FirebaseDatabase.getInstance().getReference("My Rides");
+//                databaseReference.child("Source").child("Latitude").setValue(start_latitude);
+//                databaseReference.child("Source").child("Longitude").setValue(start_longitude);
 
 
 
@@ -154,7 +173,7 @@ public class ShareFragment extends android.support.v4.app.Fragment {
         else {
             if (resultCode == getActivity().RESULT_OK){
                 place = PlacePicker.getPlace(data,getContext());
-                String address = place.getAddress().toString();
+                destinationAddress = place.getAddress().toString();
                 LatLng location = place.getLatLng();
 
                 dest_longitude = location.longitude;
@@ -163,10 +182,10 @@ public class ShareFragment extends android.support.v4.app.Fragment {
 
                 to.setTextSize(10);
 
-                to.setText(address);
-                databaseReference = FirebaseDatabase.getInstance().getReference("My Rides");
-                databaseReference.child("Destination").child("Latitude").setValue(dest_latitude);
-                databaseReference.child("Destination").child("Longitude").setValue(dest_longitude);
+                to.setText(destinationAddress);
+//                databaseReference = FirebaseDatabase.getInstance().getReference("My Rides");
+//                databaseReference.child("Destination").child("Latitude").setValue(dest_latitude);
+//                databaseReference.child("Destination").child("Longitude").setValue(dest_longitude);
 
             }
         }
@@ -198,6 +217,8 @@ public class ShareFragment extends android.support.v4.app.Fragment {
         }
 
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            hour = hourOfDay;
+            min = minute;
             if (Integer.toString(minute).length()<2){
                 selectedTime = Integer.toString(hourOfDay) + ": 0" + Integer.toString(minute);
             }else{
